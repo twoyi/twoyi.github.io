@@ -1,0 +1,16 @@
+{
+  "name": "twoyi.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/twoyi/twoyi.github.io.git",
+  "author": "tiann <twsxtd@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^0.20.10"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  }
+}

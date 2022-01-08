@@ -27,6 +27,7 @@ function getGuideSidebar() {
         { text: '开始使用', link: '/guide/getting-started' },
         { text: '联系我', link: '/guide/contact' },
         { text: '常见问题', link: '/guide/faq' },
+        { text: '其他作品', link: '/guide/myapp' },
         { text: '赞助', link: '/guide/sponsor' }
       ]
 }

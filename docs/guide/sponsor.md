@@ -4,15 +4,15 @@
 
 [![Paypal Me](/paypal.png)](https://paypal.me/virtualxposed)
 
-## Bitcoin
+## 比特币
 
 [39Wst8oL74pRP2vKPkPihH6RFQF4hWoBqU](https://www.blockchain.com/btc/payment_request?address=39Wst8oL74pRP2vKPkPihH6RFQF4hWoBqU)
 
-## Alipay
+## 支付宝
 
 <img src="/alipay.jpg" alt="alipay" width="240" height="364">
 
-## Weixin
+## 微信
 
 <img src="/weixin.png" alt="weixin" width="200" height="274">
 

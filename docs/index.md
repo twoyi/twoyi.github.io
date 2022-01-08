@@ -4,7 +4,7 @@ heroImage: /twoyi.png
 heroAlt: Logo image
 heroText: 两仪
 tagline: 一个轻量级的 Android 容器
-actionText: 快速开始
+actionText: 开始了解
 actionLink: /guide/
 features:
   - title: 完全可定制

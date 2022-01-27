@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,d as r}from"./app.a183bad2.js";const h='{"title":"","description":"","frontmatter":{},"relativePath":"guide/contact.md","lastUpdated":1641622190312}',o={},i=r("",1),n=[i];function l(_,p,s,c,m,d){return a(),t("div",null,n)}var g=e(o,[["render",l]]);export{h as __pageData,g as default};

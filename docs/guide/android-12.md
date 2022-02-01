@@ -5,3 +5,11 @@
 <iframe src="//player.bilibili.com/player.html?aid=680784467&bvid=BV1LS4y177bG&cid=488098186&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500" high_quality="1" danmaku="1"> </iframe>
 
 [去 B 站观看](https://www.bilibili.com/video/BV1LS4y177bG?share_source=copy_web)
+
+视频中的 ADB 指令：
+
+> /system/bin/device_config set_sync_disabled_for_tests persistent; /system/bin/device_config put activity_manager max_phantom_processes 2147483647
+
+如果你不想使用以上指令，可以执行如下指令恢复：
+
+> /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 20

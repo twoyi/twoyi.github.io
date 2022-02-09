@@ -9,8 +9,12 @@ module.exports = {
       nav: [
         { text: '指南', link: '/', activeMatch: '^/$|^/guide/' },
         {
+          text: 'Github',
+          link: 'https://github.com/twoyi/twoyi'
+        },
+        {
           text: '下载',
-          link: 'https://github.com/vuejs/vitepress/releases'
+          link: 'https://github.com/twoyi/twoyi/releases'
         }
       ],
   

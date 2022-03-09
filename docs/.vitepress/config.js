@@ -29,6 +29,7 @@ function getGuideSidebar() {
   return [
         { text: '什么是两仪', link: '/guide/' },
         { text: '开始使用', link: '/guide/getting-started' },
+        { text: '制作 ROM', link: '/guide/customize-rootfs' },
         { text: '联系我', link: '/guide/contact' },
         { text: '常见问题', link: '/guide/faq' },
         { text: '其他作品', link: '/guide/myapp' },

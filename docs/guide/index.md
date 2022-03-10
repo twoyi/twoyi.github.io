@@ -2,24 +2,22 @@
 sidebarDepth: 2
 ---
 
-# 介绍
+# Introduction
 
-## 是什么
+Twoyi is **a lightweight Android container**. It runs a nearly complete Android system as a normal app (no root required) on Android. Additionally, it supports Android 8.1 ~ 12.
 
-两仪就是一个**轻量级的 Android 容器**。它可以在 Android 系统上以一个普通 App 的身份（免ROOT）来运行一个相对完整的 Android 系统。并且它支持 Android 8.1 ~ **12**。
+## Capability
 
-## 能做什么
+1. Using Taichi·Yang without unlocking the bootloader. Xposed, EdXposed and LSPosed will be supported later.
+2. Using root on non-rooted devices.
+3. Magisk modules will be partially supported.
+4. Implementing additional system components such as virtual camera by virtualizing the HAL layer.
+5. Doing security research such as shelling.
 
-1. 免 ROOT 使用太极·阳；后续也可以支持 Xposed、EdXposed 和 LSPosed 等。
-2. 免 ROOT 设备上使用 ROOT 功能。
-3. 部分支持 Magisk 模块。
-4. 两仪的 HAL 层是可以虚拟化的；如虚拟相机等。
-5. 两仪还能用作安全研究；如脱壳等。
+## Features
 
-## 特性
-
-1. 两仪是一个免 ROOT 的 Android 系统级容器；它内部运行了一个相对完整的 Android 系统，与外部的系统可以形成一定程度的隔离。
-2. 两仪内部 Android 系统版本为 Android 8.1；后续会支持 Android 10.
-3. 两仪的启动速度非常快。除第一次初始化系统较慢之外，后续两仪基本上可以在三秒钟左右启动。
-4. 两仪将会是一个开源项目。
-5. 两仪内部的系统将是完全可定制化的。因为其系统开源，你完全可以自己拉个分支编译 AOSP；对系统组件，如 framework，HAL 做定制化开发；实现虚拟相机，虚拟传感器等特殊功能。
+1. Twoyi is a rootless Android system-level container, which runs a nearly complete Android system as a normal app and is mostly isolated from the main system.
+2. The internal Android version is Android 8.1 and Android 10 will be supported later.
+3. Starting up Twoyi is very fast and the system can be booted in about three seconds except for the initialization.
+4. Twoyi is an open source project.
+5. The internal system of twoyi will be fully customizable. Because its system is open source, you can fork the project to compile your own AOSP. You can also customize the system components, such as the HAL layer to implement virtual cameras, virtual sensors and other special features.

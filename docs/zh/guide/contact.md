@@ -1,0 +1,6 @@
+- 电子邮件：[twsxtd@gmail.com](mailto:twsxtd@gmail.com)
+- 官网：[twoyi.app](https://twoyi.app)
+- 讨论组：[Telegram](https://t.me/twoyi)
+- QQ 频道: [两仪](https://qun.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&inviteCode=139WMT&from=246610&biz=ka) (请在手机 QQ 中打开此链接)
+- B站: [术哥喜欢皮卡丘](http://live.bilibili.com/9539715)
+- 微信公众号/视频号: **虚拟框架**

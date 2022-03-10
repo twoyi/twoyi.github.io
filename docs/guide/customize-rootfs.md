@@ -1,28 +1,28 @@
-# 制作自己的 ROM
+# Customizing ROM
 
-两仪在 `0.5.0` 版本及以上支持导入自定义的 ROM 并引导系统，以下是制作自定义 ROM 的操作方法。
+The Twoyi has added the feature to importing custom ROM and boot system in `0.5.1` version and above, here is the turtoial.
 
-两仪的 ROM 是一个 `7z` 格式的压缩文件；因此您需要先下载 `7z` 压缩工具；这里有[下载地址](https://www.7-zip.org/download.html)
+The ROM is a compressed file in `7z` format; so you need to download the `7z` compression tool first; here is the [download address](https://www.7-zip.org/download.html)
 
-## 获取原始 rootfs
+## Get the original rootfs
 
-首先我们需要一个原始的 rootfs 文件来进行修改，这里推荐使用官方发布的安装包中自带的 rootfs；您可以在两仪 [官网](https://twoyi.io) 下载最新的两仪安装包文件；然后使用 zip 工具解压缩此安装包；在解压缩后的目录 `assets` 中存在一个 `rootfs.7z` 的文件；
+First we need the original rootfs file, we recommend using the rootfs that comes with the official apk file; you can download the latest apk from the Twoyi [official website](https://twoyi.io); then use the zip utility to extract the package; in the extracted directory `assets` there is a `rootfs.7z` file.
 
 ![rootfs](/rootfs.png)
 
-然后使用 `7z` 工具解压缩此文件，我们可以得到一个文件夹，这个文件夹为两仪的 rootfs.7z。
+Then use the `7z` utility to extract this file and we can get a folder which is rootfs for Twoyi.
 
 ![rootfs-file-tree](/rootfs_folder.jpg)
 
-## 修改 rootfs
+## Edit rootfs
 
-通过你熟悉的方式修改 rootfs 中的文件；如添加内置的系统应用，修改资源文件，修改字体等等；请注意：请不要轻易删除两仪 rootfs 中的二进制和库文件，否则可能会导致无法开机。
+Modify the files in the rootfs in a way you are familiar with; such as adding built-in system applications, modifying resource files, modifying fonts, etc.; please note: Please do not delete the binary and library files in the Twoyi rootfs easily, as this may result in a failure to boot.
 
-PS. 目前不支持替换 Launcher，请不要尝试替换自定义 Launcher。
+PS. Replacement of Launcher is currently not supported, please do not try to replace the custom Launcher.
 
-## 添加作者信息和描述
+## Adding rom.ini
 
-修改完毕 rootfs 之后，建议添加作者以及 ROM 相关信息；在 rootfs 目录下有一个 `rom.ini` 文件；此文件格式如下：
+After modifying the rootfs, it is recommended to add author and ROM description; there is a `rom.ini` file in the rootfs directory; this file has the following format.
 
 ```ini
 author=作者名字
@@ -31,6 +31,6 @@ version=1.0.0-first # 版本名
 desc=这是一个demo ROM
 ```
 
-## 导入 rootfs
+## Replace ROM in Twoyi
 
-修改完毕以后，通过 `7z` 工具将此目录压缩为 7z 文件；然后进入两仪，打开设置-替换ROM 选择您制作的 ROM 即可。
+After the modification, use the `7z` tool to compress this directory into a 7z file; then go to Twoyi, open `Settings - Replace ROM` and select the ROM you made.

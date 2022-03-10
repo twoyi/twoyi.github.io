@@ -1,20 +1,18 @@
-# Android 12 操作指南
+# Android 12 User Guide
 
-由于 Android 12 上，Google 引入的 [phantom processes](https://cs.android.com/android/_/android/platform/frameworks/base/+/157550849f0430181fa53c8e1b63112c59c6937b) 机制会影响两仪的运行，需要使用 ADB 来解除此限制；请按照如下指南操作：
+Since the [phantom processes](https://cs.android.com/android/_/android/platform/frameworks/base/+/157550849f0430181fa53c8e1b63112c59c6937b) mechanism introduced by Google on Android 12 affects the operation of Twoyi, you need to use ADB to remove this restriction; please follow these guidelines.
 
 <iframe src="//player.bilibili.com/player.html?aid=680784467&bvid=BV1LS4y177bG&cid=488098186&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500" high_quality="1" danmaku="1"> </iframe>
 
-[去 B 站观看](https://www.bilibili.com/video/BV1LS4y177bG?share_source=copy_web)
-
-视频中的 ADB 指令：
+The ADB instructions in video：
 
 > /system/bin/device_config set_sync_disabled_for_tests persistent; /system/bin/device_config put activity_manager max_phantom_processes 2147483647
 
-如果你不再使用两仪，并且想恢复上述指令的影响，可以执行如下指令恢复：
+If you no longer use the Twoyi and want to restore the impact of the above command, you can restore it by executing the following command:
 
 > /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 20
 
-说明：
+Attention:
 
-1. 如果有 root 权限，可以直接用 root 权限执行上述命令；无需 ADB。
-2. 执行完这个命令以后，相应的辅助 App（如视频中的黑阈）可以卸载。
+1. If you have root privileges, you can execute the above command directly with root privileges; no ADB is required.
+2. After executing this command, the corresponding auxiliary app (such as the Black Threshold in the video) can be uninstalled.

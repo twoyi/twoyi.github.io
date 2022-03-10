@@ -1,81 +1,76 @@
-## 使用相关
+## Usage related
 
-### 哪里下载？
+### Where to download
 
-1. 关注公众号：虚拟框架  然后回复：两仪
-2. [酷安](https://coolapk.com/apk/io.twoyi)
-3. 在[联系我](contact.md) 中加入 TG 或者 QQ 频道
-4. [Github Release](https://github.com/twoyi/twoyi/releases)
+1. Join Telegram Group in [Contact me](contact.md)
+2. [Github Release](https://github.com/twoyi/twoyi/releases)
+3. [CoolApk](https://coolapk.com/apk/io.twoyi)
 
-### 怎么导入导出文件？
+### How to import/export files
 
-请参阅[管理文件](manage-files.md)
+Please refer: [Manage files](manage-files.md)
 
-### 怎么制作自定义 ROM
+### How to customize ROM?
 
-请参阅 [自定义 ROM](customize-rootfs.md)
+Please refer: [Customizing ROM](customize-rootfs.md)
 
-### 有用户交流群吗？
+### Any discussion groups?
 
-在[联系我](contact.md) 中加入 TG 或者 QQ 频道
+Telegram or QQ in [联系我](contact.md)
 
-### 什么时候支持 iOS ？
+### Any plan to support iOS?
 
-iOS 的不是不可以做，但是由于 App Store 的限制，即使做出来之后，应用分发会非常麻烦；于我来说，几乎没有什么用；所以不会做，也就不会有。
+No such plan becuase of the App Store restriction.
 
-### 无法开机或者突然卡死
+### Boot failures
 
-如果是 Android 12，请参阅[Android 12 操作指南](android-12.md)
+If you are running on Android 12, please refer: [Android 12 User Guide](android-12.md)
 
-其他情况，请等待后续修复（可关注我微信视频号，直播修复 BUG）。
+For other situations, please wait for the fix.
 
-### 不流畅、非常卡
+### Too lag
 
-目前采用模拟渲染的方式，请等待 GPU 直通版本。
+Please wait for the GPU direct render mode.
 
-### 什么时候支持 32 位 App？
+### 32bit support?
 
-我个人永远也不会支持。如果要支持 32位，ROM 体积会翻一倍；而 32 位应用即将退出历史舞台，从 2022 年开始，各大应用商店都不支持 32位应用了；32位应用运行在某些新的芯片上也会有严重的性能问题；因此，不会支持 32位。
+Twoyi won't support 32bit Apps.
 
-### 如何使用太极？
+### How to use Tai Chi with Twoyi
 
-请参阅 [太极使用指南](taichi.md)
+Please refer: [Tai Chi in Twoyi](taichi.md)
 
-### 能用 adb 连接两仪里面的系统吗？
+### How to use ADB
 
-可以。首先保证你使用 adb 的那一端（一般是电脑，手机也可以）与两仪所在的手机处于同一个局域网，并且保证两个设备能通过局域网互相访问（如果有防火墙之类自己设置）；然后找出你两仪所在设备的 IP 地址，你可以在系统的 wifi 设置里面看，也可以用 adb 连接两仪所在宿主机器，执行 `ip addr`；然后使用 `adb connect IP:22122` 即可连接两仪系统所在的 adb。
+`adb connect IP:22122`
 
-### 某些应用打不开
+### Some Apps crashed when open it
 
-目前不支持某些加固（如某数字加固）的应用；请等待后续版本。
+Please wait for the fix.
 
-### 套娃失败？
+### Can we run it in other virtual machine?
 
-目前不支持嵌套虚拟化，无法在两仪内使用其他虚拟机。
+It is not supported.
 
-### 屏幕旋转有问题
+### Ratation issue
 
-已知问题；不过目前重点在于 GPU 直通，请等待后续修复。
+Please wait for the fix.
 
-### 支持设备参数修改？
+### Can we modify the device properties?
 
-目前不支持，后续是否支持还在考虑中。
+It is possible, but is not supported now.
 
-### 其他问题
+### Other issues
 
-直接在 [Github Issue](https://github.com/twoyi/twoyi/issues) 中提出，请详细描述你遇到的问题。
+Please fire an issue on [Github Issue](https://github.com/twoyi/twoyi/issues) and report it clearly.
 
-## 项目相关
+## Project related
 
-### 两仪是用什么语言写的？
+### Which language is used in Twoyi development?
 
-两仪分为两部分：两仪 App 本体，以及两仪内部运行的 ROM；App 本体采用 **Java** 和 **Rust** 编写，ROM 实际上就是 AOSP，主要由 **Java** 和 **C++** 组成。
+Java and Rust.
 
-### 什么时候开源？
+### When it would be open sourced?
 
-1. App 本体已经开源在 [Github Repo](https://github.com/twoyi/twoyi)。
-2. ROM 还在代码整理中，逐步已经在 [Github](https://github.com/twoyi)。
-
-### 可以分享一下虚拟化的技术吗？
-
-请关注我微信视频号：**虚拟框架**，不定时有直播分享。
+1. Twoyi App is already open sourced in [Github Repo](https://github.com/twoyi/twoyi)。
+2. The ROM is open-sourcing [Github](https://github.com/twoyi)。

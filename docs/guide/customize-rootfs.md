@@ -8,7 +8,11 @@
 
 首先我们需要一个原始的 rootfs 文件来进行修改，这里推荐使用官方发布的安装包中自带的 rootfs；您可以在两仪 [官网](https://twoyi.io) 下载最新的两仪安装包文件；然后使用 zip 工具解压缩此安装包；在解压缩后的目录 `assets` 中存在一个 `rootfs.7z` 的文件；
 
+![rootfs](/rootfs.png)
+
 然后使用 `7z` 工具解压缩此文件，我们可以得到一个文件夹，这个文件夹为两仪的 rootfs.7z。
+
+![rootfs-file-tree](/rootfs_folder.jpg)
 
 ## 修改 rootfs
 

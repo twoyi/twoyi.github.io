@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as r,d as a}from"./app.af6f326d.js";const h='{"title":"","description":"","frontmatter":{},"relativePath":"guide/contact.md","lastUpdated":1641622190312}',o={},i=a("",1),n=[i];function l(_,p,s,c,m,f){return r(),t("div",null,n)}var g=e(o,[["render",l]]);export{h as __pageData,g as default};

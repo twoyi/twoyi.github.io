@@ -7,6 +7,14 @@
 3. 在[联系我](contact.md) 中加入 TG 或者 QQ 频道
 4. [Github Release](https://github.com/twoyi/twoyi/releases)
 
+### 怎么导入导出文件？
+
+请参阅[管理文件](manage-files.md)
+
+### 怎么制作自定义 ROM
+
+请参阅 [自定义 ROM](customize-rootfs.md)
+
 ### 有用户交流群吗？
 
 在[联系我](contact.md) 中加入 TG 或者 QQ 频道

@@ -10,6 +10,11 @@
 
 > /system/bin/device_config set_sync_disabled_for_tests persistent; /system/bin/device_config put activity_manager max_phantom_processes 2147483647
 
-如果你不想使用以上指令，可以执行如下指令恢复：
+如果你不再使用两仪，并且想恢复上述指令的影响，可以执行如下指令恢复：
 
 > /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 20
+
+说明：
+
+1. 如果有 root 权限，可以直接用 root 权限执行上述命令；无需 ADB。
+2. 执行完这个命令以后，相应的辅助 App（如视频中的黑阈）可以卸载。

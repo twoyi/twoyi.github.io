@@ -12,9 +12,18 @@
 
 如果你不再使用两仪，并且想恢复上述指令的影响，可以执行如下指令恢复：
 
-> /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 20
+> /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
+
+如果你使用的是 Android 13 或更高系统，可以使用如下命令来解除限制：
+
+> settings put global settings_enable_monitor_phantom_procs false
+
+Android 13 的恢复指令：
+
+> settings put global settings_enable_monitor_phantom_procs true
 
 说明：
 
 1. 如果有 root 权限，可以直接用 root 权限执行上述命令；无需 ADB。
 2. 执行完这个命令以后，相应的辅助 App（如视频中的黑阈）可以卸载。
+3. Android 13 以上两种指令都可以，推荐第二种。

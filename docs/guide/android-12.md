@@ -1,4 +1,6 @@
-# Android 12 User Guide
+## Android 12+ User Guide
+
+## Android 12
 
 Since the [phantom processes](https://cs.android.com/android/_/android/platform/frameworks/base/+/157550849f0430181fa53c8e1b63112c59c6937b) mechanism introduced by Google on Android 12 affects the operation of Twoyi, you need to use ADB to remove this restriction; please follow these guidelines.
 
@@ -10,9 +12,19 @@ The ADB instructions in video：
 
 If you no longer use the Twoyi and want to restore the impact of the above command, you can restore it by executing the following command:
 
-> /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 20
+> /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
+
+If you are using Android 13 or above system, you can run this ADB instruction to remove the restriction:
+
+> settings put global settings_enable_monitor_phantom_procs false
+
+And you can run this ADB instruction to recover it on Android 13:
+
+> settings put global settings_enable_monitor_phantom_procs true
 
 Attention:
 
 1. If you have root privileges, you can execute the above command directly with root privileges; no ADB is required.
 2. After executing this command, the corresponding auxiliary app (such as the Black Threshold in the video) can be uninstalled.
+3. You can use both ADB instruction on Android 13, the second is recommended.
+

@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as r,a}from"./app.b5580867.js";const h='{"title":"","description":"","frontmatter":{},"relativePath":"zh/guide/contact.md","lastUpdated":1646890851305}',o={},i=a("",1),n=[i];function l(_,p,s,c,m,f){return r(),t("div",null,n)}var g=e(o,[["render",l]]);export{h as __pageData,g as default};

@@ -1,6 +1,13 @@
 module.exports = {
     title: '两仪',
     description: '一个轻量级的 Android 容器',
+    head: [
+        ['script', {
+            async: 'async',
+            src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2610070972052494',
+            crossorigin: 'anonymous',
+        }],
+    ],
     themeConfig: {
       locales: {
         '/': {

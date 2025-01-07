@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as a}from"./chunks/framework.D5XSuxOt.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guide/getting-started.md","filePath":"guide/getting-started.md"}'),r={name:"guide/getting-started.md"};function n(s,d,i,o,c,g){return a(),e("div")}const m=t(r,[["render",n]]);export{_ as __pageData,m as default};

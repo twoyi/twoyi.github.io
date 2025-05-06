@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as a}from"./app.e90bf3d0.js";const f='{"title":"","description":"","frontmatter":{},"relativePath":"zh/guide/getting-started.md","lastUpdated":1746534938339}',r={};function o(s,n,c,d,p,i){return a(),e("div")}var l=t(r,[["render",o]]);export{f as __pageData,l as default};

@@ -20,7 +20,8 @@ robots.txt, sitemap.xml
 URLs used by shipped apps must stay: `/guide`, `/guide/android-12.html`, `/guide/sponsor.html`,
 `/privacy`, `/gms.json`.
 
-New iOS release: change the IPA URL in `ios/index.html` (two places). The Android download
+New iOS release: `scripts/set-ios-ipa.py <https URL of the .ipa>` checks the URL and rewrites
+`ios/index.html`, the only file that holds it (every page links to `/ios/`). Commit and push. The Android download
 follows twoyi.ai's `/download`. When facts change (OS minimums, Android version inside), update
 both home pages, their JSON-LD, `llms.txt` and the privacy pages together.
 

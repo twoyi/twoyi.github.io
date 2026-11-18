@@ -1,0 +1,33 @@
+# Twoyi (两仪)
+
+> Twoyi is an app that runs a complete, separate Android system on an iPhone, iPad or Android phone. The Android inside has its own home screen, apps and data, kept apart from the rest of the device. The iOS version runs Android 13 with no jailbreak or JIT and boots it in about 3 seconds; the Android version runs Android 8.1, 13 or 17 with no root or ADB and boots in about 1 second. Both are free.
+
+Key facts:
+
+- iOS version: iPhone and iPad, iOS / iPadOS 15.0 or later, a complete Android 13 inside. No jailbreak and no JIT (no computer, debugger or StikDebug-style helper). Android's code is translated ahead of time (AOT) into native ARM64 code when Twoyi is built. Android 13 boots in about 3 seconds after the first launch, with GPU acceleration and ProMotion. Published as an IPA file (not on the App Store); users sideload it with AltStore, SideStore, TrollStore or their own developer certificate. APKs are installed by opening them with Twoyi from Files or the share sheet.
+- Android version: 64-bit phones with Android 8.1 or later; runs Android 8.1, 13 or 17 inside. No root and no ADB. Boots in about 1 second after a first setup of about 1 minute; GPU acceleration at up to 120 FPS; about 4 GB free storage. The system's processes run directly on the phone's CPU, with no machine emulation. Apps can be imported from the phone (without their data or sign-ins) or installed from APKs; Google services install from settings (https://github.com/twoyi/GApps). Planned, not available yet: possible compatibility with the KernelSU and Xposed ecosystems.
+- How it differs from QEMU, UTM and Husk on iOS: QEMU and UTM emulate a whole computer; without JIT (UTM SE) they interpret code with QEMU's TCTI threaded interpreter, and UTM with JIT needs a computer attached for debugging or a tool such as StikDebug. Husk's translation layer runs a single game's native code without booting Android and falls back to LineageOS under QEMU for full Android. Twoyi emulates no hardware: its own runtime provides the Linux kernel interface Android needs, and code is translated to native ARM64 ahead of time.
+- Not a cloud phone: Android runs on the user's own device; no server is rented and app data stays on the device.
+- App support: most 64-bit Android apps; 32-bit apps are not supported; apps that need specific hardware or use hardening/anti-debugging may not run.
+- Twoyi Twin (https://twoyi.ai): an AI assistant built on Twoyi that operates the Android inside Twoyi to finish tasks the user describes in one sentence. It is part of the Android version (the same APK). Users bring their own model API key.
+- Privacy: no accounts, no ad or third-party analytics SDKs. The iOS app sends no requests of its own; the Android app checks twoyi.ai for updates. Apps inside Twoyi go online directly.
+- Price: free.
+- Author: weishu (GitHub: tiann), also the author of KernelSU and VirtualXposed. Twoyi first appeared in 2021 as an Android-only container.
+
+## Pages
+
+- [Home (English)](https://twoyi.app/): what Twoyi is, the iOS and Android versions, comparison with QEMU / UTM / Husk, Twoyi Twin, FAQ
+- [首页（中文）](https://twoyi.app/zh/): the same content in Simplified Chinese
+- [Privacy policy](https://twoyi.app/privacy) / [隐私政策](https://twoyi.app/zh/privacy)
+
+## Download
+
+- [iOS IPA](https://twoyi.app/ios/): redirects to the current IPA on dl.twoyi.ai
+- [Android APK](https://twoyi.app/android/): redirects to https://twoyi.ai/download, the current APK on dl.twoyi.ai
+
+## Optional
+
+- [Telegram channel](https://t.me/twoyi): release announcements and feedback
+- [Twoyi Twin](https://twoyi.ai/en/): the AI assistant built on Twoyi
+- [Sponsor](https://twoyi.app/guide/sponsor.html)
+- Contact: twsxtd@gmail.com

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Android 12+ 使用指南 · 两仪 | Android 12+ guide · Twoyi</title>
+<meta name="description" content="两仪在 Android 12 及以上无法开机或突然退出时，用 ADB 解除 phantom process 限制的方法。How to lift Android 12+ phantom process limits for Twoyi with ADB.">
+<link rel="canonical" href="https://twoyi.app/guide/android-12.html">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<meta name="theme-color" content="#F3F4F6">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/zh/"><img src="/assets/logo.svg" alt="" width="26" height="26">两仪</a>
+    <nav class="nav-links">
+      <a href="/guide/android-12.html#english" lang="en" hreflang="en">EN</a>
+    </nav>
+    <a class="btn" href="/zh/#ios">免费下载</a>
+  </div>
+</header>
+
+<main class="doc">
+  <h1>Android 12+ 使用指南</h1>
+  <p class="note">当前版本的两仪不需要 ADB，也不需要执行下面的命令。本页只适用于旧版本。</p>
+  <p class="meta">适用于两仪 Android 旧版本 · English below: <a href="#english">Android 12+ guide</a></p>
+  <p>Android 12 起，系统的 <a href="https://cs.android.com/android/_/android/platform/frameworks/base/+/157550849f0430181fa53c8e1b63112c59c6937b">phantom process</a> 机制会限制一个 App 的子进程数量，超出就杀掉，两仪会因此无法开机或突然退出。用 ADB（或 ROOT 权限）执行下面的命令可以解除限制。</p>
+
+  <h2>Android 13 及以上（推荐）</h2>
+  <pre><code>adb shell settings put global settings_enable_monitor_phantom_procs false</code></pre>
+  <p>恢复：</p>
+  <pre><code>adb shell settings put global settings_enable_monitor_phantom_procs true</code></pre>
+
+  <h2>Android 12 / 12L</h2>
+  <pre><code>adb shell "/system/bin/device_config set_sync_disabled_for_tests persistent; /system/bin/device_config put activity_manager max_phantom_processes 2147483647"</code></pre>
+  <p>恢复：</p>
+  <pre><code>adb shell "/system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32"</code></pre>
+  <p>Android 13 及以上两组命令都有效，推荐第一组。</p>
+
+  <h2>说明</h2>
+  <ul>
+    <li>有 ROOT 权限时，去掉 <code>adb shell</code>，直接用 ROOT 权限执行引号里的命令，不需要电脑。</li>
+    <li>没有电脑时，也可以用手机上支持无线调试的 ADB 工具执行；执行完即可卸载。</li>
+    <li>视频演示：<a href="https://www.bilibili.com/video/BV1LS4y177bG">在 B 站观看</a>。</li>
+  </ul>
+
+  <hr>
+
+  <h1 id="english" lang="en">Android 12+ guide</h1>
+  <div lang="en">
+  <p class="note">The current version of Twoyi needs no ADB and none of the commands below. This page is for older versions only.</p>
+  <p class="meta">For older versions of Twoyi on Android</p>
+  <p>Since Android 12, the system's <a href="https://cs.android.com/android/_/android/platform/frameworks/base/+/157550849f0430181fa53c8e1b63112c59c6937b">phantom process</a> mechanism limits how many child processes an app may have and kills the rest, so Twoyi fails to boot or quits suddenly. Run the commands below with ADB (or as root) to lift the limit.</p>
+
+  <h2>Android 13 and later (recommended)</h2>
+  <pre><code>adb shell settings put global settings_enable_monitor_phantom_procs false</code></pre>
+  <p>To restore:</p>
+  <pre><code>adb shell settings put global settings_enable_monitor_phantom_procs true</code></pre>
+
+  <h2>Android 12 / 12L</h2>
+  <pre><code>adb shell "/system/bin/device_config set_sync_disabled_for_tests persistent; /system/bin/device_config put activity_manager max_phantom_processes 2147483647"</code></pre>
+  <p>To restore:</p>
+  <pre><code>adb shell "/system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32"</code></pre>
+  <p>On Android 13 and later both sets work; the first is recommended.</p>
+
+  <h2>Notes</h2>
+  <ul>
+    <li>With root, drop <code>adb shell</code> and run the quoted command as root; no computer is needed.</li>
+    <li>Without a computer, an on-device ADB tool that uses wireless debugging can run the command; uninstall it afterwards.</li>
+    <li>Video walkthrough (Chinese): <a href="https://www.bilibili.com/video/BV1LS4y177bG">on Bilibili</a>.</li>
+  </ul>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/zh/" style="font-size:15px"><img src="/assets/logo.svg" alt="" width="22" height="22">两仪</a>
+    <span>© 2021–2026 Twoyi</span>
+    <span class="sp"></span>
+    <a href="/zh/">首页</a>
+    <a href="https://t.me/twoyi">Telegram</a>
+    <a href="/guide/android-12.html#english" lang="en" hreflang="en">EN</a>
+  </div>
+</footer>
+
+</body>
+</html>

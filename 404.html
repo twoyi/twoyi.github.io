@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>页面不存在 · 两仪</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+<script>
+// Pages of the old VitePress site (2021–2025) moved or were folded into the home page.
+(function () {
+  var p = location.pathname.replace(/\.html$/, "").replace(/\/+$/, "");
+  var m = p.match(/^(\/zh)?\/guide\/([a-z0-9-]+)$/);
+  var zh = /^\/zh(\/|$)/.test(p) || (!/^\/guide\//.test(p) && /^zh/i.test(navigator.language || ""));
+  var home = zh ? "/zh/" : "/";
+  var to = null;
+  if (m) {
+    var page = m[2];
+    if (page === "android-12") to = "/guide/android-12.html" + (zh ? "" : "#english");
+    else if (page === "sponsor") to = "/guide/sponsor.html" + (zh ? "" : "#english");
+    else if (page === "gms") to = "https://github.com/twoyi/GApps";
+    else if (page === "faq" || page === "troubleshooting" || page === "contact" || page === "community") to = home + "#faq";
+    else if (page === "getting-started" || page === "requirements" || page === "first-boot") to = home + "#download";
+    else to = home;
+  } else if (p === "/guide") to = home;
+  else if (p === "/en") to = "/";
+  else if (p === "/en/privacy") to = "/privacy";
+  if (to) location.replace(to);
+})();
+</script>
+</head>
+<body>
+<main class="doc" style="text-align:center; padding-top:18vh">
+  <h1>页面不存在</h1>
+  <p class="meta" lang="en">This page does not exist.</p>
+  <div class="cta" style="justify-content:center">
+    <a class="btn" href="/zh/">回到首页</a>
+    <a class="btn ghost" href="/" lang="en">English home</a>
+  </div>
+</main>
+</body>
+</html>

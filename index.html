@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twoyi — run a full Android system on iPhone, iPad and Android phones</title>
+<meta name="description" content="Twoyi runs a complete Android system on iPhone, iPad and Android phones. On iOS it translates Android code ahead of time: no jailbreak, no JIT, Android 13 boots in about 3 seconds, with GPU acceleration and ProMotion. On Android it boots in about 1 second, renders at up to 120 FPS, and needs no root or ADB. Free download.">
+<link rel="canonical" href="https://twoyi.app/">
+<link rel="alternate" hreflang="zh-CN" href="https://twoyi.app/zh/">
+<link rel="alternate" hreflang="en" href="https://twoyi.app/">
+<link rel="alternate" hreflang="x-default" href="https://twoyi.app/">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<meta name="theme-color" content="#F3F4F6">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Twoyi">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://twoyi.app/">
+<meta property="og:title" content="Twoyi · a full Android system in one app">
+<meta property="og:description" content="iPhone / iPad: ahead-of-time translation, no JIT, Android 13 in about 3 seconds. Android: about 1 second, 120 FPS, no root.">
+<meta property="og:image" content="https://twoyi.app/assets/logo.png">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://twoyi.app/#website",
+      "url": "https://twoyi.app/",
+      "name": "Twoyi",
+      "alternateName": "两仪",
+      "inLanguage": ["zh-CN", "en"],
+      "publisher": { "@id": "https://twoyi.app/#author" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://twoyi.app/#author",
+      "name": "weishu",
+      "email": "twsxtd@gmail.com",
+      "sameAs": ["https://github.com/tiann", "https://twitter.com/twsxtd"]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://twoyi.app/#ios",
+      "name": "Twoyi for iOS",
+      "description": "Runs a complete Android 13 system on iPhone and iPad. Android code is translated ahead of time (AOT) into native ARM64 code, so it needs no jailbreak and no JIT; boots in about 3 seconds, with GPU acceleration and ProMotion. Distributed as an IPA file for sideloading.",
+      "operatingSystem": "iOS 15.0 or later, iPadOS 15.0 or later",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": ["Complete Android 13 system", "Ahead-of-time translation, no JIT", "No jailbreak", "Boots in about 3 seconds", "GPU acceleration", "ProMotion high refresh rate"],
+      "downloadUrl": "https://twoyi.app/ios/",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://twoyi.app/#author" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://twoyi.app/#android",
+      "name": "Twoyi for Android",
+      "description": "Runs a complete Android system (Android 8.1, 13 or 17) as an ordinary app on Android phones, without root or ADB; boots in about 1 second and renders with the GPU at up to 120 FPS. The same app includes the AI assistant Twoyi Twin.",
+      "operatingSystem": "Android 8.1 or later (64-bit)",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": ["Runs Android 8.1, 13 or 17", "No root or ADB", "Boots in about 1 second", "GPU acceleration, up to 120 FPS", "AI assistant Twoyi Twin"],
+      "downloadUrl": "https://twoyi.app/android/",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://twoyi.app/#author" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Twoyi?", "acceptedAnswer": { "@type": "Answer", "text": "Twoyi is an app that runs a complete, separate Android system on an iPhone, iPad or Android phone, with its own home screen, apps and data. The iOS version runs Android 13; the Android version runs Android 8.1, 13 or 17." } },
+        { "@type": "Question", "name": "How is Twoyi different from QEMU, UTM and Husk?", "acceptedAnswer": { "@type": "Answer", "text": "QEMU and UTM emulate a whole computer; on iOS without JIT (UTM SE) they can only interpret code piece by piece, and JIT needs a computer attached for debugging or a tool such as StikDebug. Husk's translation layer runs a single game without booting Android, and relies on QEMU emulation for a full system. Twoyi emulates no hardware: its own runtime provides the Linux kernel interface Android needs, and Android code is translated ahead of time into native ARM64 code, so a complete Android 13 boots in about 3 seconds without JIT." } },
+        { "@type": "Question", "name": "Do I need a jailbreak, JIT, root or ADB?", "acceptedAnswer": { "@type": "Answer", "text": "No. The iOS version needs no jailbreak and no JIT (no computer or debugger attached); the Android version needs no root and no ADB. Twoyi installs and runs as an ordinary app." } },
+        { "@type": "Question", "name": "How do I install the iOS version?", "acceptedAnswer": { "@type": "Answer", "text": "The iOS version is published as an IPA file and is not on the App Store. Download the IPA, then sign and install it with AltStore, SideStore, TrollStore or your own developer certificate. It needs iOS / iPadOS 15 or later." } },
+        { "@type": "Question", "name": "Is Twoyi free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Twoyi is free to download and use." } },
+        { "@type": "Question", "name": "How is Twoyi related to Twoyi Twin (twoyi.ai)?", "acceptedAnswer": { "@type": "Answer", "text": "Twoyi Twin is an AI assistant built on Twoyi: it opens apps, taps and types on the Android system inside Twoyi to finish tasks for you. It is part of the Android version and needs your own model API key. See https://twoyi.ai/en/." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="26" height="26">Twoyi</a>
+    <nav class="nav-links">
+      <a class="opt" href="#ios">iPhone / iPad</a>
+      <a class="opt" href="#android">Android</a>
+      <a class="opt" href="#compare">Compare</a>
+      <a class="opt" href="#faq">FAQ</a>
+      <a href="/zh/" lang="zh-CN" hreflang="zh-CN">中文</a>
+    </nav>
+    <a class="btn" href="#ios">Free download</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><i></i>iOS and Android · free download</span>
+      <h1>A full Android,<br>inside <span class="shine">one app</span></h1>
+      <p class="lead">Twoyi runs a separate Android system on your iPhone, iPad or Android phone: its own home screen, apps and data, open in seconds, and out of the way of everything else on your phone.</p>
+      <div class="cta">
+        <a class="btn" href="#ios">For iPhone / iPad</a>
+        <a class="btn ghost" href="#android">For Android</a>
+      </div>
+      <p class="cta-note">No jailbreak or JIT on iOS · No root or ADB on Android</p>
+    </div>
+
+    <div class="stage" aria-hidden="true">
+      <div class="phone">
+        <div class="app droid">
+          <div class="screen">
+            <div class="launcher">
+              <div class="lc-status"><span>9:41</span><svg viewBox="0 0 34 10" fill="#1E2230"><path d="M0 9h2V7H0zM3 9h2V5H3zM6 9h2V3H6zM9 9h2V1H9z"/><path d="M15 4.5a6 6 0 0 1 8 0l-4 4.5z"/><rect x="25" y="1.5" width="8" height="7" rx="1.5"/></svg></div>
+              <div class="lc-glance"><p class="d">Tue, Nov 18</p><p class="w">☁️ 64°F · Android 13 in Twoyi</p></div>
+              <div class="lc-grid"><div class="lc-app"><i style="background:#5F6B7A"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></i>Settings</div><div class="lc-app"><i style="background:#4F7CFF"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></i>Camera</div><div class="lc-app"><i style="background:#E56BD6"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 16l5-5 4 4 3-3 5 5"/><circle cx="15.5" cy="9" r="1.3"/></svg></i>Photos</div><div class="lc-app"><i style="background:#2F6BB0"><svg viewBox="0 0 24 24"><path d="M3.5 7a2 2 0 0 1 2-2h4l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></svg></i>Files</div><div class="lc-app"><i style="background:#8E6BFF"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></i>Clock</div><div class="lc-app"><i style="background:#FF8A6B"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3v4M15.5 3v4"/></svg></i>Calendar</div><div class="lc-app"><i style="background:#3E7D5C"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12.5h.01M12 12.5h.01M15.5 12.5h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/></svg></i>Calculator</div><div class="lc-app"><i style="background:#F0A23C"><svg viewBox="0 0 24 24"><path d="M9 17V5l10-2v12"/><circle cx="6.5" cy="17" r="2.5"/><circle cx="16.5" cy="15" r="2.5"/></svg></i>Music</div></div>
+              <div class="lc-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Search</div>
+              <div class="lc-dock"><i style="background:#3E9B6C"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></i><i style="background:#4F7CFF"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></i><i style="background:#45A6E0"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 2.5 14.5 0 17M12 3.5c-2.5 2.5-2.5 14.5 0 17"/></svg></i><i style="background:#8E6BFF"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></i></div>
+              <div class="lc-nav"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="float ask"><b>iPhone · iPad</b><span>Android 13 in about 3 s</span></div>
+      <div class="float need"><b>Android phones</b><span>About 1 s · 120 FPS</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="ios">
+  <div class="wrap">
+    <div class="platform-head">
+      <div>
+        <p class="kicker">iPhone and iPad</p>
+        <h2>No jailbreak, no JIT,<br>Android 13 in 3 seconds</h2>
+        <p class="sub">iOS does not let apps generate executable code at run time, the biggest obstacle to running Android on an iPhone. Twoyi translates Android's code into the iPhone's native code when it is built, and gets everything out of the chip.</p>
+      </div>
+      <div class="dl">
+        <a class="btn" href="/ios/">Download IPA</a>
+        <small>iOS / iPadOS 15 or later. Not on the App Store yet: sign and install it with AltStore, SideStore, TrollStore or your own certificate.</small>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card wide">
+        <p class="big shine">AOT</p>
+        <h3>Translated ahead of time</h3>
+        <p>The Android system's code is translated into native ARM64 instructions when Twoyi is built and runs directly. No JIT, so no computer attached, no debugging session, no StikDebug-style helper.</p>
+      </div>
+      <div class="card wide">
+        <p class="big">≈ 3<span>s</span></p>
+        <h3>To a complete Android 13</h3>
+        <p>About 3 seconds from opening Twoyi to the Android home screen (the first launch prepares the system first). Home screen, Settings and system UI included: real Android, not a shell around one app.</p>
+      </div>
+      <div class="card">
+        <h3>GPU acceleration</h3>
+        <p>Android's graphics are rendered on the iPhone or iPad GPU, so scrolling and animations do not grind on the CPU.</p>
+      </div>
+      <div class="card">
+        <h3>ProMotion</h3>
+        <p>On iPhones and iPads with ProMotion, the Android interface follows the high refresh rate.</p>
+      </div>
+      <div class="card">
+        <h3>Open APKs with Twoyi</h3>
+        <p>Open an APK with Twoyi from Files or the share sheet and it installs into Android. Camera, microphone, location and motion are requested only when an Android app uses them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="android" style="padding-top:0">
+  <div class="wrap">
+    <div class="platform-head">
+      <div>
+        <p class="kicker">Android phones</p>
+        <h2>1 second to boot, 120 FPS</h2>
+        <p class="sub">On Android, the system's processes run directly on the phone's CPU with no machine emulation, so Twoyi opens as fast as an ordinary app.</p>
+      </div>
+      <div class="dl">
+        <a class="btn" href="/android/">Download APK</a>
+        <small>64-bit phones, Android 8.1 or later, about 4 GB free.</small>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card wide">
+        <p class="big">≈ 1<span>s</span></p>
+        <h3>An Android in a second</h3>
+        <p>Setting up the system takes about a minute the first time; after that, Twoyi reaches the Android home screen in about 1 second.</p>
+      </div>
+      <div class="card wide">
+        <p class="big shine">120<span>FPS</span></p>
+        <h3>GPU acceleration</h3>
+        <p>Graphics go straight to the phone's GPU, up to 120 FPS on high-refresh screens, for games and long lists alike.</p>
+      </div>
+      <div class="card">
+        <h3>Android 8.1, 13, 17</h3>
+        <p>Twoyi runs Android 8.1, 13 and 17 inside, from older apps to the newest system.</p>
+      </div>
+      <div class="card">
+        <h3>No root, no ADB</h3>
+        <p>Install and go: no unlocked bootloader, no computer, no changes to your system. Import apps already on your phone (without their data or sign-ins), or install APKs directly.</p>
+      </div>
+      <div class="card">
+        <h3>KernelSU and Xposed <span class="badge">Planned</span></h3>
+        <p>Twoyi may support the KernelSU and Xposed ecosystems in the future: modules inside Twoyi's system, without touching your phone itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="compare" style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker">Compare</p>
+    <h2>Ways to run Android on an iPhone</h2>
+    <p class="sub">QEMU and UTM emulate a whole computer; Husk mainly translates individual games. Twoyi emulates no hardware: it provides the Linux kernel interface Android needs directly and translates code into native code ahead of time.</p>
+    <div class="tablewrap">
+      <table class="compare">
+        <thead><tr><th></th><th class="us">Twoyi</th><th>QEMU / UTM SE</th><th>UTM (with JIT)</th><th>Husk</th></tr></thead>
+        <tbody>
+          <tr><th>Runs</th><td class="us">A complete Android 13</td><td>An emulated computer, then an OS on it</td><td>An emulated computer, then an OS on it</td><td>Translation layer: one game, no Android boot; emulation: LineageOS under QEMU</td></tr>
+          <tr><th>Executes code by</th><td class="us">Ahead-of-time translation to native ARM64</td><td>TCTI threaded interpreter, piece by piece</td><td>Run-time JIT translation</td><td>Translation layer: the game's native code directly; emulation: QEMU</td></tr>
+          <tr><th>Hardware</th><td class="us">None emulated: Twoyi provides the kernel interface</td><td>Emulates CPU, memory and devices</td><td>Emulates CPU, memory and devices</td><td>Emulates a whole machine in emulation mode</td></tr>
+          <tr><th>Needs JIT</th><td class="us">No</td><td>No</td><td>Yes: a computer attached for debugging, or a tool such as StikDebug</td><td>Yes; a no-JIT mode after importing the signing certificate</td></tr>
+          <tr><th>Needs jailbreak</th><td class="us">No</td><td>No</td><td>No</td><td>No</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note">Details of other projects are from their public documentation (<a href="https://docs.getutm.app/installation/ios/">UTM</a>, <a href="https://github.com/Leviidev/Husk">Husk</a>), as of November 2026.</p>
+  </div>
+</section>
+
+<section id="twin" style="padding-top:0">
+  <div class="wrap split">
+    <div>
+      <p class="kicker">Twoyi Twin · twoyi.ai</p>
+      <h2>Let an AI use that phone for you</h2>
+      <p class="sub" style="margin-bottom:0">Twoyi Twin is an AI assistant built on Twoyi. Tell it in one sentence what to do; it opens apps, taps, types and finishes the job on the Android inside Twoyi, while you keep using your own phone and can take over at any time.</p>
+      <ul class="reqs">
+        <li>Part of the Android version</li>
+        <li>Bring your own model API key: OpenAI, Anthropic, Gemini, DeepSeek, Qwen, Kimi and more</li>
+        <li>Asks before deleting, paying, sending or posting; leaves sign-ins and passwords to you</li>
+      </ul>
+      <div class="cta" style="margin-top:28px"><a class="btn ghost" href="https://twoyi.ai/en/">About Twoyi Twin</a></div>
+    </div>
+    <div class="panel" aria-hidden="true">
+      <div class="screens">
+        <div class="mini"><div class="lines"><i></i><i style="width:70%"></i><i></i><i style="width:55%"></i></div><div class="cap">Your phone</div></div>
+        <div class="mini bg"><div class="lines"><i style="width:60%"></i><i></i><i style="width:80%"></i></div><div class="glow"></div><div class="cap">Twoyi · Twin at work</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="center">FAQ</h2>
+    <div class="faq" style="margin-top:36px">
+      <details>
+        <summary>What is Twoyi?</summary>
+        <p>Twoyi is an app that runs a complete, separate Android system on an iPhone, iPad or Android phone, with its own home screen, apps and data. The iOS version runs Android 13; the Android version runs Android 8.1, 13 or 17.</p>
+      </details>
+      <details>
+        <summary>How is Twoyi different from QEMU, UTM and Husk?</summary>
+        <p>QEMU and UTM emulate a whole computer; on iOS without JIT (UTM SE) they can only interpret code piece by piece, and JIT needs a computer attached for debugging or a tool such as StikDebug. Husk's translation layer runs a single game without booting Android, and relies on QEMU emulation for a full system. Twoyi emulates no hardware: its own runtime provides the Linux kernel interface Android needs, and Android code is translated ahead of time into native ARM64 code, so a complete Android 13 boots in about 3 seconds without JIT.</p>
+      </details>
+      <details>
+        <summary>Do I need a jailbreak, JIT, root or ADB?</summary>
+        <p>No. The iOS version needs no jailbreak and no JIT (no computer or debugger attached); the Android version needs no root and no ADB. Twoyi installs and runs as an ordinary app.</p>
+      </details>
+      <details>
+        <summary>How do I install the iOS version?</summary>
+        <p>The iOS version is published as an IPA file and is not on the App Store. Download the IPA, then sign and install it with AltStore, SideStore, TrollStore or your own developer certificate. It needs iOS / iPadOS 15 or later.</p>
+      </details>
+      <details>
+        <summary>Is it a cloud phone? Where is my data?</summary>
+        <p>It is not a cloud phone: Android runs on your own device, with no rented server and no monthly fee. Apps you install in Twoyi, the accounts you sign in to and the data they create stay in Twoyi, separate from the apps on your phone; uninstalling Twoyi deletes them.</p>
+      </details>
+      <details>
+        <summary>Which Android apps run?</summary>
+        <p>Most 64-bit apps. 32-bit apps are not supported; apps that depend on specific hardware or use hardening and anti-debugging may not run. On Android, Google services can be installed with one tap in settings.</p>
+      </details>
+      <details>
+        <summary>Is Twoyi free?</summary>
+        <p>Yes. Twoyi is free to download and use.</p>
+      </details>
+      <details>
+        <summary>Does Twoyi collect my data?</summary>
+        <p>Twoyi has no accounts and contains no ad or third-party analytics SDKs. Apps inside Twoyi go online directly, as on any phone. See the <a href="/privacy">privacy policy</a>.</p>
+      </details>
+      <details>
+        <summary>How is Twoyi related to Twoyi Twin (twoyi.ai)?</summary>
+        <p>Twoyi Twin is an AI assistant built on Twoyi: it opens apps, taps and types on the Android system inside Twoyi to finish tasks for you. It is part of the Android version and needs your own model API key. See <a href="https://twoyi.ai/en/">twoyi.ai</a>.</p>
+      </details>
+      <details>
+        <summary>Where do I report a problem?</summary>
+        <p>Join the <a href="https://t.me/twoyi">Telegram channel</a>, where new versions are announced too, or email <a href="mailto:twsxtd@gmail.com">twsxtd@gmail.com</a>. On iOS, the “Android has stopped” screen lets you share logs directly.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div class="box">
+      <div class="glow" aria-hidden="true"></div>
+      <h2>Put Android on your phone</h2>
+      <p class="sub" style="margin:0 auto 30px">Twoyi is made by <a href="https://github.com/tiann">weishu</a>, also the author of KernelSU and VirtualXposed.</p>
+      <div class="cta" style="justify-content:center">
+        <a class="btn" href="/ios/">Get it for iOS</a>
+        <a class="btn ghost" href="/android/">Get it for Android</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/" style="font-size:15px"><img src="/assets/logo.svg" alt="" width="22" height="22">Twoyi</a>
+    <span>© 2021–2026 Twoyi</span>
+    <span class="sp"></span>
+    <a href="/privacy">Privacy</a>
+    <a href="/guide/sponsor.html#english">Sponsor</a>
+    <a href="https://twoyi.ai/en/">Twoyi Twin</a>
+    <a href="https://t.me/twoyi">Telegram</a>
+    <a href="https://github.com/twoyi">GitHub</a>
+    <a href="/zh/" lang="zh-CN" hreflang="zh-CN">中文</a>
+  </div>
+</footer>
+
+</body>
+</html>

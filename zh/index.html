@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>两仪 Twoyi — 在 iPhone、iPad 和 Android 手机上运行完整的 Android 系统</title>
+<meta name="description" content="两仪在 iPhone、iPad 和 Android 手机上运行完整的 Android 系统。iOS 版用 AOT 预先翻译，无需越狱或 JIT，约 3 秒启动 Android 13，支持 GPU 加速和 ProMotion；Android 版约 1 秒启动，GPU 加速最高 120 FPS，无需 ROOT 或 ADB。免费下载。">
+<link rel="canonical" href="https://twoyi.app/zh/">
+<link rel="alternate" hreflang="zh-CN" href="https://twoyi.app/zh/">
+<link rel="alternate" hreflang="en" href="https://twoyi.app/">
+<link rel="alternate" hreflang="x-default" href="https://twoyi.app/">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<meta name="theme-color" content="#F3F4F6">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="两仪 Twoyi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="https://twoyi.app/zh/">
+<meta property="og:title" content="两仪 · 把一部完整的 Android 装进一个 App">
+<meta property="og:description" content="iPhone / iPad：AOT 预先翻译，无需 JIT，约 3 秒启动 Android 13。Android：约 1 秒启动，120 FPS，无需 ROOT。">
+<meta property="og:image" content="https://twoyi.app/assets/logo.png">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://twoyi.app/#website",
+      "url": "https://twoyi.app/",
+      "name": "两仪 Twoyi",
+      "inLanguage": ["zh-CN", "en"],
+      "publisher": { "@id": "https://twoyi.app/#author" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://twoyi.app/#author",
+      "name": "weishu",
+      "email": "twsxtd@gmail.com",
+      "sameAs": ["https://github.com/tiann", "https://twitter.com/twsxtd"]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://twoyi.app/#ios",
+      "name": "两仪 Twoyi（iOS 版）",
+      "alternateName": "Twoyi for iOS",
+      "description": "在 iPhone 和 iPad 上运行完整的 Android 13 系统。Android 代码由 AOT 预先翻译成 ARM64 本机代码，无需越狱或 JIT；约 3 秒启动，支持 GPU 加速和 ProMotion。以 IPA 文件发布，需要侧载安装。",
+      "operatingSystem": "iOS 15.0 或更高版本，iPadOS 15.0 或更高版本",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": ["完整的 Android 13 系统", "AOT 预先翻译，无需 JIT", "无需越狱", "约 3 秒启动", "GPU 加速", "ProMotion 高刷新率"],
+      "downloadUrl": "https://twoyi.app/ios/",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://twoyi.app/#author" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://twoyi.app/#android",
+      "name": "两仪 Twoyi（Android 版）",
+      "alternateName": "Twoyi for Android",
+      "description": "在 Android 手机上以普通 App 的方式运行完整的 Android 系统（Android 8.1、13 或 17），无需 ROOT 或 ADB；约 1 秒启动，GPU 加速最高 120 FPS。同一个 App 也包含 AI 助手“两仪分身”。",
+      "operatingSystem": "Android 8.1 或更高版本（64 位）",
+      "applicationCategory": "UtilitiesApplication",
+      "featureList": ["可运行 Android 8.1、13、17", "无需 ROOT 或 ADB", "约 1 秒启动", "GPU 加速，最高 120 FPS", "AI 助手两仪分身"],
+      "downloadUrl": "https://twoyi.app/android/",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://twoyi.app/#author" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "两仪是什么？", "acceptedAnswer": { "@type": "Answer", "text": "两仪是一个 App，在 iPhone、iPad 或 Android 手机上运行一个完整、独立的 Android 系统，有自己的桌面、应用和数据。iOS 版运行 Android 13，Android 版可运行 Android 8.1、13 和 17。" } },
+        { "@type": "Question", "name": "两仪和 QEMU、UTM、Husk 有什么不同？", "acceptedAnswer": { "@type": "Answer", "text": "QEMU 和 UTM 模拟一整台电脑；在 iOS 上不开 JIT 时（UTM SE）只能逐段解释执行，开 JIT 又需要连接电脑调试或借助 StikDebug 等工具。Husk 的翻译层直接运行单个游戏而不启动 Android，完整系统要靠 QEMU 模拟。两仪不模拟硬件，由自己的运行时直接提供 Android 需要的 Linux 内核接口，并在构建时把 Android 代码预先翻译成 ARM64 本机代码，所以无需 JIT 也能约 3 秒启动完整的 Android 13。" } },
+        { "@type": "Question", "name": "需要越狱、JIT、ROOT 或 ADB 吗？", "acceptedAnswer": { "@type": "Answer", "text": "不需要。iOS 版不需要越狱，也不需要 JIT（不用连电脑或开调试）；Android 版不需要 ROOT，也不需要 ADB。两仪像普通 App 一样安装和运行。" } },
+        { "@type": "Question", "name": "iOS 版怎么安装？", "acceptedAnswer": { "@type": "Answer", "text": "iOS 版以 IPA 文件发布，没有上架 App Store。下载 IPA 后，用 AltStore、SideStore、TrollStore 或自己的开发者证书签名安装。要求 iOS / iPadOS 15 或更高版本。" } },
+        { "@type": "Question", "name": "两仪收费吗？", "acceptedAnswer": { "@type": "Answer", "text": "两仪免费下载和使用。" } },
+        { "@type": "Question", "name": "两仪和两仪分身（twoyi.ai）是什么关系？", "acceptedAnswer": { "@type": "Answer", "text": "两仪分身是基于两仪的 AI 助手：它在两仪里的 Android 系统上替你打开应用、点按、输入，完成任务。目前包含在 Android 版里，需要自带大模型 API Key。详见 https://twoyi.ai。" } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/zh/"><img src="/assets/logo.svg" alt="" width="26" height="26">两仪</a>
+    <nav class="nav-links">
+      <a class="opt" href="#ios">iPhone / iPad</a>
+      <a class="opt" href="#android">Android</a>
+      <a class="opt" href="#compare">对比</a>
+      <a class="opt" href="#faq">常见问题</a>
+      <a href="/" lang="en" hreflang="en">EN</a>
+    </nav>
+    <a class="btn" href="#ios">免费下载</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><i></i>iOS 与 Android 版 · 免费下载</span>
+      <h1>一部完整的 Android，<br>装进<span class="shine">一个 App</span></h1>
+      <p class="lead">两仪在你的 iPhone、iPad 或 Android 手机上运行一个独立的 Android 系统：有自己的桌面、应用和数据，几秒钟就能打开，和你手机上的一切互不干扰。</p>
+      <div class="cta">
+        <a class="btn" href="#ios">iPhone / iPad 版</a>
+        <a class="btn ghost" href="#android">Android 版</a>
+      </div>
+      <p class="cta-note">iOS 无需越狱或 JIT · Android 无需 ROOT 或 ADB</p>
+    </div>
+
+    <div class="stage" aria-hidden="true">
+      <div class="phone">
+        <div class="app droid">
+          <div class="screen">
+            <div class="launcher">
+              <div class="lc-status"><span>9:41</span><svg viewBox="0 0 34 10" fill="#1E2230"><path d="M0 9h2V7H0zM3 9h2V5H3zM6 9h2V3H6zM9 9h2V1H9z"/><path d="M15 4.5a6 6 0 0 1 8 0l-4 4.5z"/><rect x="25" y="1.5" width="8" height="7" rx="1.5"/></svg></div>
+              <div class="lc-glance"><p class="d">11月18日 星期二</p><p class="w">☁️ 18°C · Android 13 运行在两仪里</p></div>
+              <div class="lc-grid"><div class="lc-app"><i style="background:#5F6B7A"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></i>设置</div><div class="lc-app"><i style="background:#4F7CFF"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></i>相机</div><div class="lc-app"><i style="background:#E56BD6"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 16l5-5 4 4 3-3 5 5"/><circle cx="15.5" cy="9" r="1.3"/></svg></i>图库</div><div class="lc-app"><i style="background:#2F6BB0"><svg viewBox="0 0 24 24"><path d="M3.5 7a2 2 0 0 1 2-2h4l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></svg></i>文件</div><div class="lc-app"><i style="background:#8E6BFF"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></i>时钟</div><div class="lc-app"><i style="background:#FF8A6B"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3v4M15.5 3v4"/></svg></i>日历</div><div class="lc-app"><i style="background:#3E7D5C"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12.5h.01M12 12.5h.01M15.5 12.5h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/></svg></i>计算器</div><div class="lc-app"><i style="background:#F0A23C"><svg viewBox="0 0 24 24"><path d="M9 17V5l10-2v12"/><circle cx="6.5" cy="17" r="2.5"/><circle cx="16.5" cy="15" r="2.5"/></svg></i>音乐</div></div>
+              <div class="lc-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>搜索</div>
+              <div class="lc-dock"><i style="background:#3E9B6C"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></i><i style="background:#4F7CFF"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></i><i style="background:#45A6E0"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 2.5 14.5 0 17M12 3.5c-2.5 2.5-2.5 14.5 0 17"/></svg></i><i style="background:#8E6BFF"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></i></div>
+              <div class="lc-nav"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="float ask"><b>iPhone · iPad</b><span>约 3 秒启动 Android 13</span></div>
+      <div class="float need"><b>Android 手机</b><span>约 1 秒启动 · 120 FPS</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="ios">
+  <div class="wrap">
+    <div class="platform-head">
+      <div>
+        <p class="kicker">iPhone 与 iPad</p>
+        <h2>不越狱、不用 JIT，<br>3 秒打开 Android 13</h2>
+        <p class="sub">iOS 不允许 App 在运行时生成可执行代码，这是 iPhone 上跑 Android 最大的障碍。两仪在构建时就把 Android 的代码翻译成 iPhone 的本机代码，把芯片的性能发挥到极致。</p>
+      </div>
+      <div class="dl">
+        <a class="btn" href="/ios/">下载 IPA</a>
+        <small>iOS / iPadOS 15 及以上。尚未上架 App Store，用 AltStore、SideStore、TrollStore 或自己的证书签名安装。</small>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card wide">
+        <p class="big shine">AOT</p>
+        <h3>预先翻译成本机代码</h3>
+        <p>Android 系统的代码在构建时由 AOT 翻译成 ARM64 本机指令，运行时直接执行，不需要 JIT，也就不需要连电脑、开调试或借助 StikDebug 之类的工具。</p>
+      </div>
+      <div class="card wide">
+        <p class="big">≈ 3<span>秒</span></p>
+        <h3>启动完整的 Android 13</h3>
+        <p>从点开两仪到 Android 桌面约 3 秒（首次启动需要先准备系统）。桌面、设置、系统界面都在，是真正的 Android，不是单个应用的外壳。</p>
+      </div>
+      <div class="card">
+        <h3>GPU 加速</h3>
+        <p>Android 的图形调用交给 iPhone 和 iPad 的 GPU 渲染，滚动和动画不靠 CPU 硬算。</p>
+      </div>
+      <div class="card">
+        <h3>支持 ProMotion</h3>
+        <p>在支持 ProMotion 的 iPhone 和 iPad 上，Android 界面跟随高刷新率显示。</p>
+      </div>
+      <div class="card">
+        <h3>用两仪打开 APK</h3>
+        <p>在“文件”或分享菜单里用两仪打开 APK，就会装进里面的 Android。相机、麦克风、定位、计步在 Android 应用用到时才申请权限。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="android" style="padding-top:0">
+  <div class="wrap">
+    <div class="platform-head">
+      <div>
+        <p class="kicker">Android 手机</p>
+        <h2>1 秒启动，120 FPS</h2>
+        <p class="sub">Android 版里的系统进程直接运行在手机的 CPU 上，没有整机模拟，开起来和普通 App 一样快。</p>
+      </div>
+      <div class="dl">
+        <a class="btn" href="/android/">下载 APK</a>
+        <small>64 位手机，Android 8.1 及以上，约 4 GB 可用空间。</small>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card wide">
+        <p class="big">≈ 1<span>秒</span></p>
+        <h3>秒开一部 Android</h3>
+        <p>首次创建系统约 1 分钟，之后打开两仪约 1 秒就到 Android 桌面。</p>
+      </div>
+      <div class="card wide">
+        <p class="big shine">120<span>FPS</span></p>
+        <h3>GPU 加速</h3>
+        <p>图形直接走手机的 GPU，在高刷屏上最高 120 FPS，玩游戏、刷列表都跟手。</p>
+      </div>
+      <div class="card">
+        <h3>Android 8.1、13、17</h3>
+        <p>支持在两仪里运行 Android 8.1、13 和 17，从老应用到新系统都能覆盖。</p>
+      </div>
+      <div class="card">
+        <h3>不用 ROOT，不用 ADB</h3>
+        <p>装上就能用：不解锁 Bootloader，不连电脑，不改动你的系统。可以从手机导入已装的应用（不含其数据和登录），也可以直接安装 APK。</p>
+      </div>
+      <div class="card">
+        <h3>KernelSU 与 Xposed <span class="badge">计划中</span></h3>
+        <p>未来可能兼容 KernelSU 和 Xposed 生态，在两仪里的系统中使用模块，不碰你的手机本身。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="compare" style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker">对比</p>
+    <h2>在 iPhone 上跑 Android 的几种方式</h2>
+    <p class="sub">QEMU 和 UTM 模拟一整台电脑，Husk 主要翻译单个游戏。两仪不模拟硬件，直接提供 Android 需要的 Linux 内核接口，并把代码预先翻译成本机代码。</p>
+    <div class="tablewrap">
+      <table class="compare">
+        <thead><tr><th></th><th class="us">两仪</th><th>QEMU / UTM SE</th><th>UTM（开启 JIT）</th><th>Husk</th></tr></thead>
+        <tbody>
+          <tr><th>运行什么</th><td class="us">完整的 Android 13</td><td>模拟一整台电脑，再装系统</td><td>模拟一整台电脑，再装系统</td><td>翻译层：单个游戏，不启动 Android；模拟模式：QEMU 中的 LineageOS</td></tr>
+          <tr><th>怎么执行代码</th><td class="us">AOT 预先翻译成 ARM64 本机代码</td><td>TCTI 线程化解释器，逐段解释</td><td>运行时 JIT 动态翻译</td><td>翻译层：游戏原生代码直接运行；模拟模式：QEMU</td></tr>
+          <tr><th>硬件</th><td class="us">不模拟：内核接口由两仪直接提供</td><td>模拟 CPU、内存和设备</td><td>模拟 CPU、内存和设备</td><td>模拟模式下模拟整机</td></tr>
+          <tr><th>需要 JIT</th><td class="us">不需要</td><td>不需要</td><td>需要：连电脑调试，或 StikDebug 等工具</td><td>需要；导入签名证书后可用无 JIT 模式</td></tr>
+          <tr><th>需要越狱</th><td class="us">不需要</td><td>不需要</td><td>不需要</td><td>不需要</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note">其他项目的信息来自其公开文档（<a href="https://docs.getutm.app/installation/ios/">UTM</a>、<a href="https://github.com/Leviidev/Husk">Husk</a>），整理于 2026 年 11 月。</p>
+  </div>
+</section>
+
+<section id="twin" style="padding-top:0">
+  <div class="wrap split">
+    <div>
+      <p class="kicker">两仪分身 · twoyi.ai</p>
+      <h2>让 AI 替你用这部手机</h2>
+      <p class="sub" style="margin-bottom:0">两仪分身是基于两仪的 AI 助手。你一句话交代任务，它在两仪里的 Android 上打开应用、点按、输入、跑完流程；你照常用自己的手机，随时可以接手。</p>
+      <ul class="reqs">
+        <li>包含在 Android 版里</li>
+        <li>自带大模型 API Key：DeepSeek、Qwen、Kimi、OpenAI、Anthropic、Gemini 等</li>
+        <li>删除、支付、发送、发布之前先问你；登录和密码交给你处理</li>
+      </ul>
+      <div class="cta" style="margin-top:28px"><a class="btn ghost" href="https://twoyi.ai/">了解两仪分身</a></div>
+    </div>
+    <div class="panel" aria-hidden="true">
+      <div class="screens">
+        <div class="mini"><div class="lines"><i></i><i style="width:70%"></i><i></i><i style="width:55%"></i></div><div class="cap">你的手机</div></div>
+        <div class="mini bg"><div class="lines"><i style="width:60%"></i><i></i><i style="width:80%"></i></div><div class="glow"></div><div class="cap">两仪 · 分身在操作</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="center">常见问题</h2>
+    <div class="faq" style="margin-top:36px">
+      <details>
+        <summary>两仪是什么？</summary>
+        <p>两仪是一个 App，在 iPhone、iPad 或 Android 手机上运行一个完整、独立的 Android 系统，有自己的桌面、应用和数据。iOS 版运行 Android 13，Android 版可运行 Android 8.1、13 和 17。</p>
+      </details>
+      <details>
+        <summary>两仪和 QEMU、UTM、Husk 有什么不同？</summary>
+        <p>QEMU 和 UTM 模拟一整台电脑；在 iOS 上不开 JIT 时（UTM SE）只能逐段解释执行，开 JIT 又需要连接电脑调试或借助 StikDebug 等工具。Husk 的翻译层直接运行单个游戏而不启动 Android，完整系统要靠 QEMU 模拟。两仪不模拟硬件，由自己的运行时直接提供 Android 需要的 Linux 内核接口，并在构建时把 Android 代码预先翻译成 ARM64 本机代码，所以无需 JIT 也能约 3 秒启动完整的 Android 13。</p>
+      </details>
+      <details>
+        <summary>需要越狱、JIT、ROOT 或 ADB 吗？</summary>
+        <p>不需要。iOS 版不需要越狱，也不需要 JIT（不用连电脑或开调试）；Android 版不需要 ROOT，也不需要 ADB。两仪像普通 App 一样安装和运行。</p>
+      </details>
+      <details>
+        <summary>iOS 版怎么安装？</summary>
+        <p>iOS 版以 IPA 文件发布，没有上架 App Store。下载 IPA 后，用 AltStore、SideStore、TrollStore 或自己的开发者证书签名安装。要求 iOS / iPadOS 15 或更高版本。</p>
+      </details>
+      <details>
+        <summary>是云手机吗？数据存在哪里？</summary>
+        <p>不是云手机：Android 在你自己的设备上运行，不租用服务器，没有月费。在两仪里安装的应用、登录的账号和产生的数据都留在两仪里，不和手机本身的应用混在一起；卸载两仪会一并删除。</p>
+      </details>
+      <details>
+        <summary>能运行哪些 Android 应用？</summary>
+        <p>大多数 64 位应用。不支持 32 位应用；依赖特定硬件或带有加固、反调试的应用可能无法运行。Android 版可以在设置里一键安装 Google 服务。</p>
+      </details>
+      <details>
+        <summary>两仪收费吗？</summary>
+        <p>两仪免费下载和使用。</p>
+      </details>
+      <details>
+        <summary>两仪会收集我的数据吗？</summary>
+        <p>两仪没有账号系统，不含广告和第三方统计 SDK。两仪里的应用会像在普通手机上一样直接联网。详见 <a href="/zh/privacy">隐私政策</a>。</p>
+      </details>
+      <details>
+        <summary>两仪和两仪分身（twoyi.ai）是什么关系？</summary>
+        <p>两仪分身是基于两仪的 AI 助手：它在两仪里的 Android 系统上替你打开应用、点按、输入，完成任务。目前包含在 Android 版里，需要自带大模型 API Key。详见 <a href="https://twoyi.ai/">twoyi.ai</a>。</p>
+      </details>
+      <details>
+        <summary>在哪里反馈问题？</summary>
+        <p>加入 <a href="https://t.me/twoyi">Telegram 频道</a>，新版本也在那里发布；或者发邮件到 <a href="mailto:twsxtd@gmail.com">twsxtd@gmail.com</a>。iOS 版在“Android 已停止”页面可以直接分享日志。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div class="box">
+      <div class="glow" aria-hidden="true"></div>
+      <h2>把 Android 装进你的手机</h2>
+      <p class="sub" style="margin:0 auto 30px">两仪由 <a href="https://github.com/tiann">weishu</a> 开发，他也是 KernelSU 和 VirtualXposed 的作者。</p>
+      <div class="cta" style="justify-content:center">
+        <a class="btn" href="/ios/">下载 iOS 版</a>
+        <a class="btn ghost" href="/android/">下载 Android 版</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/zh/" style="font-size:15px"><img src="/assets/logo.svg" alt="" width="22" height="22">两仪</a>
+    <span>© 2021–2026 Twoyi</span>
+    <span class="sp"></span>
+    <a href="/zh/privacy">隐私政策</a>
+    <a href="/guide/sponsor.html">赞助</a>
+    <a href="https://twoyi.ai/">两仪分身</a>
+    <a href="https://t.me/twoyi">Telegram</a>
+    <a href="https://github.com/twoyi">GitHub</a>
+    <a href="/" lang="en" hreflang="en">English</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
 
 Key facts:
 
-- iOS version: iPhone and iPad, iOS / iPadOS 15.0 or later, a complete Android 13 inside. No jailbreak and no JIT (no computer, debugger or StikDebug-style helper). Android's code is translated ahead of time (AOT) into native ARM64 code when Twoyi is built. Android 13 boots in about 3 seconds after the first launch, with GPU acceleration and ProMotion. Published as an IPA file (not on the App Store); users sideload it with AltStore, SideStore, TrollStore or their own developer certificate. APKs are installed by opening them with Twoyi from Files or the share sheet.
+- iOS version: iPhone and iPad, iOS / iPadOS 15.0 or later, a complete Android 13 inside. No jailbreak and no JIT (no computer, debugger or StikDebug-style helper). Android's code is translated ahead of time (AOT) into native ARM64 code when Twoyi is built. Android 13 boots in about 3 seconds after the first launch, with GPU acceleration and ProMotion. Available as a public TestFlight beta (https://testflight.apple.com/join/Eh5fY7uB) with a limited number of places; also published as an IPA file (the fallback when the beta is full) that users can sideload with AltStore, SideStore, TrollStore or their own developer certificate. APKs are installed by opening them with Twoyi from Files or the share sheet.
 - Android version: 64-bit phones with Android 8.1 or later; runs Android 8.1, 13 or 17 inside. No root and no ADB. Boots in about 1 second after a first setup of about 1 minute; GPU acceleration at up to 120 FPS; about 4 GB free storage. The system's processes run directly on the phone's CPU, with no machine emulation. Apps can be imported from the phone (without their data or sign-ins) or installed from APKs; Google services install from settings (https://github.com/twoyi/GApps). Planned, not available yet: possible compatibility with the KernelSU and Xposed ecosystems.
 - How it differs from QEMU, UTM and Husk on iOS: QEMU and UTM emulate a whole computer; without JIT (UTM SE) they interpret code with QEMU's TCTI threaded interpreter, and UTM with JIT needs a computer attached for debugging or a tool such as StikDebug. Husk's translation layer runs a single game's native code without booting Android and falls back to LineageOS under QEMU for full Android. Twoyi emulates no hardware: its own runtime provides the Linux kernel interface Android needs, and code is translated to native ARM64 ahead of time.
 - Not a cloud phone: Android runs on the user's own device; no server is rented and app data stays on the device.
@@ -22,6 +22,7 @@ Key facts:
 
 ## Download
 
+- [iOS TestFlight beta](https://testflight.apple.com/join/Eh5fY7uB): install through Apple's TestFlight app
 - [iOS IPA](https://twoyi.app/ios/): redirects to the current IPA on dl.twoyi.ai
 - [Android APK](https://twoyi.app/android/): redirects to https://twoyi.ai/download, the current APK on dl.twoyi.ai
 

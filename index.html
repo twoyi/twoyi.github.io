@@ -45,11 +45,11 @@
       "@type": "SoftwareApplication",
       "@id": "https://twoyi.app/#ios",
       "name": "Twoyi for iOS",
-      "description": "Runs a complete Android 13 system on iPhone and iPad. Android code is translated ahead of time (AOT) into native ARM64 code, so it needs no jailbreak and no JIT; boots in about 3 seconds, with GPU acceleration and ProMotion. Available through a public TestFlight beta, or as an IPA file for sideloading.",
+      "description": "Runs a complete Android 13 system on iPhone and iPad. Android code is translated ahead of time (AOT) into native ARM64 code, so it needs no jailbreak and no JIT; boots in about 3 seconds, with GPU acceleration and ProMotion. Available as an IPA file for sideloading.",
       "operatingSystem": "iOS 15.0 or later, iPadOS 15.0 or later",
       "applicationCategory": "UtilitiesApplication",
       "featureList": ["Complete Android 13 system", "Ahead-of-time translation, no JIT", "No jailbreak", "Boots in about 3 seconds", "GPU acceleration", "ProMotion high refresh rate"],
-      "downloadUrl": "https://testflight.apple.com/join/Eh5fY7uB",
+      "downloadUrl": "https://twoyi.app/ios/",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "author": { "@id": "https://twoyi.app/#author" }
     },
@@ -71,7 +71,7 @@
         { "@type": "Question", "name": "What is Twoyi?", "acceptedAnswer": { "@type": "Answer", "text": "Twoyi is an app that runs a complete, separate Android system on an iPhone, iPad or Android phone, with its own home screen, apps and data. The iOS version runs Android 13; the Android version runs Android 8.1, 13 or 17." } },
         { "@type": "Question", "name": "How is Twoyi different from QEMU, UTM and Husk?", "acceptedAnswer": { "@type": "Answer", "text": "QEMU and UTM emulate a whole computer; on iOS without JIT (UTM SE) they can only interpret code piece by piece, and JIT needs a computer attached for debugging or a tool such as StikDebug. Husk's translation layer runs a single game without booting Android, and relies on QEMU emulation for a full system. Twoyi emulates no hardware: its own runtime provides the Linux kernel interface Android needs, and Android code is translated ahead of time into native ARM64 code, so a complete Android 13 boots in about 3 seconds without JIT." } },
         { "@type": "Question", "name": "Do I need a jailbreak, JIT, root or ADB?", "acceptedAnswer": { "@type": "Answer", "text": "No. The iOS version needs no jailbreak and no JIT (no computer or debugger attached); the Android version needs no root and no ADB. Twoyi installs and runs as an ordinary app." } },
-        { "@type": "Question", "name": "How do I install the iOS version?", "acceptedAnswer": { "@type": "Answer", "text": "Install Apple's TestFlight app, then open the public beta link https://testflight.apple.com/join/Eh5fY7uB on your iPhone or iPad and tap Install. The public beta has a limited number of places; if it is full, download the IPA and sign and install it with AltStore, SideStore, TrollStore or your own developer certificate. It needs iOS / iPadOS 15 or later." } },
+        { "@type": "Question", "name": "How do I install the iOS version?", "acceptedAnswer": { "@type": "Answer", "text": "Download the IPA from https://twoyi.app/ios/ and sign and install it with AltStore, SideStore, TrollStore or your own developer certificate. It needs iOS / iPadOS 15 or later." } },
         { "@type": "Question", "name": "Is Twoyi free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Twoyi is free to download and use." } },
         { "@type": "Question", "name": "How is Twoyi related to Twoyi Twin (twoyi.ai)?", "acceptedAnswer": { "@type": "Answer", "text": "Twoyi Twin is an AI assistant built on Twoyi: it opens apps, taps and types on the Android system inside Twoyi to finish tasks for you. It is part of the Android version and needs your own model API key. See https://twoyi.ai/en/." } }
       ]
@@ -142,10 +142,9 @@
       </div>
       <div class="dl">
         <div class="cta">
-          <a class="btn" href="https://testflight.apple.com/join/Eh5fY7uB">Join the TestFlight beta</a>
-          <a class="btn ghost" href="/ios/">Download IPA</a>
+          <a class="btn" href="/ios/">Download IPA</a>
         </div>
-        <small>iOS / iPadOS 15 or later. TestFlight places are limited; if the beta is full, download the IPA and sideload it with AltStore, SideStore, TrollStore or your own certificate.</small>
+        <small>iOS / iPadOS 15 or later. Sideload the IPA with AltStore, SideStore, TrollStore or your own certificate.</small>
       </div>
     </div>
     <div class="grid">
@@ -276,7 +275,7 @@
       </details>
       <details>
         <summary>How do I install the iOS version?</summary>
-        <p>Install Apple's <a href="https://apps.apple.com/app/testflight/id899247664">TestFlight</a> app, then open the <a href="https://testflight.apple.com/join/Eh5fY7uB">public beta link</a> on your iPhone or iPad and tap Install. The public beta has a limited number of places; if it is full, <a href="/ios/">download the IPA</a> and sign and install it with AltStore, SideStore, TrollStore or your own developer certificate. It needs iOS / iPadOS 15 or later.</p>
+        <p><a href="/ios/">Download the IPA</a> and sign and install it with AltStore, SideStore, TrollStore or your own developer certificate. It needs iOS / iPadOS 15 or later.</p>
       </details>
       <details>
         <summary>Is it a cloud phone? Where is my data?</summary>

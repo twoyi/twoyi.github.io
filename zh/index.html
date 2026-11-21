@@ -45,11 +45,11 @@
       "@id": "https://twoyi.app/#ios",
       "name": "两仪 Twoyi（iOS 版）",
       "alternateName": "Twoyi for iOS",
-      "description": "在 iPhone 和 iPad 上运行完整的 Android 13 系统。Android 代码由 AOT 预先翻译成 ARM64 本机代码，无需越狱或 JIT；约 3 秒启动，支持 GPU 加速和 ProMotion。可通过 TestFlight 公开测试版安装，也可下载 IPA 侧载。",
+      "description": "在 iPhone 和 iPad 上运行完整的 Android 13 系统。Android 代码由 AOT 预先翻译成 ARM64 本机代码，无需越狱或 JIT；约 3 秒启动，支持 GPU 加速和 ProMotion。可下载 IPA 侧载安装。",
       "operatingSystem": "iOS 15.0 或更高版本，iPadOS 15.0 或更高版本",
       "applicationCategory": "UtilitiesApplication",
       "featureList": ["完整的 Android 13 系统", "AOT 预先翻译，无需 JIT", "无需越狱", "约 3 秒启动", "GPU 加速", "ProMotion 高刷新率"],
-      "downloadUrl": "https://testflight.apple.com/join/Eh5fY7uB",
+      "downloadUrl": "https://twoyi.app/ios/",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "author": { "@id": "https://twoyi.app/#author" }
     },
@@ -72,7 +72,7 @@
         { "@type": "Question", "name": "两仪是什么？", "acceptedAnswer": { "@type": "Answer", "text": "两仪是一个 App，在 iPhone、iPad 或 Android 手机上运行一个完整、独立的 Android 系统，有自己的桌面、应用和数据。iOS 版运行 Android 13，Android 版可运行 Android 8.1、13 和 17。" } },
         { "@type": "Question", "name": "两仪和 QEMU、UTM、Husk 有什么不同？", "acceptedAnswer": { "@type": "Answer", "text": "QEMU 和 UTM 模拟一整台电脑；在 iOS 上不开 JIT 时（UTM SE）只能逐段解释执行，开 JIT 又需要连接电脑调试或借助 StikDebug 等工具。Husk 的翻译层直接运行单个游戏而不启动 Android，完整系统要靠 QEMU 模拟。两仪不模拟硬件，由自己的运行时直接提供 Android 需要的 Linux 内核接口，并在构建时把 Android 代码预先翻译成 ARM64 本机代码，所以无需 JIT 也能约 3 秒启动完整的 Android 13。" } },
         { "@type": "Question", "name": "需要越狱、JIT、ROOT 或 ADB 吗？", "acceptedAnswer": { "@type": "Answer", "text": "不需要。iOS 版不需要越狱，也不需要 JIT（不用连电脑或开调试）；Android 版不需要 ROOT，也不需要 ADB。两仪像普通 App 一样安装和运行。" } },
-        { "@type": "Question", "name": "iOS 版怎么安装？", "acceptedAnswer": { "@type": "Answer", "text": "先安装苹果的 TestFlight 应用，再在 iPhone 或 iPad 上打开公开测试链接 https://testflight.apple.com/join/Eh5fY7uB，点击安装即可。公开测试名额有限，满员时请下载 IPA，用 AltStore、SideStore、TrollStore 或自己的开发者证书签名安装。要求 iOS / iPadOS 15 或更高版本。" } },
+        { "@type": "Question", "name": "iOS 版怎么安装？", "acceptedAnswer": { "@type": "Answer", "text": "从 https://twoyi.app/ios/ 下载 IPA，用 AltStore、SideStore、TrollStore 或自己的开发者证书签名安装。要求 iOS / iPadOS 15 或更高版本。" } },
         { "@type": "Question", "name": "两仪收费吗？", "acceptedAnswer": { "@type": "Answer", "text": "两仪免费下载和使用。" } },
         { "@type": "Question", "name": "两仪和两仪分身（twoyi.ai）是什么关系？", "acceptedAnswer": { "@type": "Answer", "text": "两仪分身是基于两仪的 AI 助手：它在两仪里的 Android 系统上替你打开应用、点按、输入，完成任务。目前包含在 Android 版里，需要自带大模型 API Key。详见 https://twoyi.ai。" } }
       ]
@@ -143,10 +143,9 @@
       </div>
       <div class="dl">
         <div class="cta">
-          <a class="btn" href="https://testflight.apple.com/join/Eh5fY7uB">加入 TestFlight 测试</a>
-          <a class="btn ghost" href="/ios/">下载 IPA</a>
+          <a class="btn" href="/ios/">下载 IPA</a>
         </div>
-        <small>iOS / iPadOS 15 及以上。TestFlight 名额有限，满员时请下载 IPA，用 AltStore、SideStore、TrollStore 或自己的证书签名安装。</small>
+        <small>iOS / iPadOS 15 及以上。下载 IPA 后用 AltStore、SideStore、TrollStore 或自己的证书签名安装。</small>
       </div>
     </div>
     <div class="grid">
@@ -277,7 +276,7 @@
       </details>
       <details>
         <summary>iOS 版怎么安装？</summary>
-        <p>先安装苹果的 <a href="https://apps.apple.com/app/testflight/id899247664">TestFlight</a> 应用，再在 iPhone 或 iPad 上打开<a href="https://testflight.apple.com/join/Eh5fY7uB">公开测试链接</a>，点击安装即可。公开测试名额有限，满员时请<a href="/ios/">下载 IPA</a>，用 AltStore、SideStore、TrollStore 或自己的开发者证书签名安装。要求 iOS / iPadOS 15 或更高版本。</p>
+        <p><a href="/ios/">下载 IPA</a>，用 AltStore、SideStore、TrollStore 或自己的开发者证书签名安装。要求 iOS / iPadOS 15 或更高版本。</p>
       </details>
       <details>
         <summary>是云手机吗？数据存在哪里？</summary>
